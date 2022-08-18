@@ -1,0 +1,43 @@
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A0
+
+<FilesMatch "\.(txt|xml|js)$">
+ExpiresDefault A691200
+</FilesMatch>
+
+<FilesMatch "\.(css)$">
+ExpiresDefault A691200
+</FilesMatch>
+
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac)$">
+ExpiresDefault A691200
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+ExpiresDefault A691200
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.(txt|xml|js)$">
+Header set Cache-Control "max-age=691200"
+</FilesMatch>
+
+<FilesMatch "\.(css)$">
+Header set Cache-Control "max-age=691200"
+</FilesMatch>
+
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac)$">
+Header set Cache-Control "max-age=691200"
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+Header set Cache-Control "max-age=691200"
+</FilesMatch>
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://english-speaking-course.bmenglishspeaking.com/$1 [R,L]
+
